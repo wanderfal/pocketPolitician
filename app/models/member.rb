@@ -1,5 +1,6 @@
 class Member < ApplicationRecord
-  belongs_to :district
+  belongs_to :district, optional: true
+  belongs_to :state
 
-  validates :members_id, uniquness: true
+  validates :member_id, uniqueness: true
 end

@@ -25,16 +25,18 @@ ActiveRecord::Schema.define(version: 20170921203023) do
   end
 
   create_table "districts", force: :cascade do |t|
+    t.bigint "state_id"
     t.integer "district_number"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_districts_on_state_id"
   end
 
   create_table "members", force: :cascade do |t|
     t.bigint "district_id"
+    t.bigint "state_id"
     t.string "member_id"
-    t.string "state"
     t.string "first_name"
     t.string "last_name"
     t.string "facebook_account"
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170921203023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["district_id"], name: "index_members_on_district_id"
+    t.index ["state_id"], name: "index_members_on_state_id"
   end
 
   create_table "states", force: :cascade do |t|
