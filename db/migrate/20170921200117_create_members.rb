@@ -1,9 +1,9 @@
 class CreateMembers < ActiveRecord::Migration[5.1]
   def change
     create_table :members do |t|
-      t.references  :district
+      t.references :district
+      t.references :state
       t.string :member_id
-      t.string :state
       t.string :first_name
       t.string :last_name
       t.string :facebook_account
